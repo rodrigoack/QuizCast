@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { View, Platform, TouchableNativeFeedback, Text, StyleSheet } from 'react-native';
 
+// Routes
+import { withNavigation } from 'react-navigation';
+
+
 class CategoryItem extends Component {
   render() {
     return(
       <TouchableNativeFeedback
         background={
-          Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''
+          Platform.OS === 'android'
+            ? TouchableNativeFeedback.SelectableBackground()
+            : ''
+        }
+        onPress={() =>
+          this.props.navigation.navigate('Question', { question: this.props.question })
         }
       >
         <View style={styles.button} >
@@ -31,4 +40,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CategoryItem;
+export default withNavigation(CategoryItem);
