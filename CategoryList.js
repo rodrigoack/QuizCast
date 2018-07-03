@@ -23,7 +23,7 @@ class CategoryList extends Component {
       <FlatList
         data={categories}
         renderItem={ ({item}) =>
-          <CategoryItem category={item.category} question={item.question}/>
+          <CategoryItem category={item.category} question={item.question} />
         }
         keyExtractor={(item) => item.key }
       />
